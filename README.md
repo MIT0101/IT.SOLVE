@@ -1,5 +1,5 @@
 # IT.SOLVE
-Project to support IT Collage Student in University of Babylon "(Software,Network,Security) Departments"  by provide create acounts on sit and publish there prplems and help eache outher to solve them By Comments in Proplem Posts , Each comment can be aproved by outher users and uplod images is supported .
+Project to support IT Collage Students in University of Babylon "(Software,Network,Security) Departments"  by provide create acounts on sit and publish there prplems and help eache outher to solve them By Comments in Proplem Posts , Each comment can be aproved by outher users and uplod images is supported .
 
 I Use these Technologies 
 
