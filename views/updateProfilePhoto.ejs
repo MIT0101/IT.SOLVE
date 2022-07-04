@@ -1,0 +1,48 @@
+<%- include("main_header") %> 
+<div class="row">
+    <div class="col-12">
+        <span class="user_fullname mt-2 mb-4"><%=userFullName%> </span>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-5 col-md-8 col-sm-10 mx-auto">
+
+        <form action="/upload/image/profile?nextRedirect=<%= nextRedirect %> " method="post" enctype="multipart/form-data">
+             
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+
+                    <img  id="imgpriv" class="mx-auto d-block img_show" src="/profilesImages/<%=userImageUrl%>" alt="">
+
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12">
+
+
+                    <div class="row">
+                      
+                        <div class="mt-2 w-100">
+                            <label for="imgfile" class="form-label">Your Profile Image</label>
+                            <input name="avatar" class="form-control" type="file" accept="Image/*" id="imgfile" onchange="privewimage();">
+                         </div>
+                    </div>
+
+                    
+            </div>
+            
+            </div>
+        
+            <button id="btn_submit"  class=" btn btn-lg mx-auto  pb-2 pt-2 mt-5" type="submit">Conform</button>
+        
+          </form>
+
+    </div>
+</div>
+
+
+
+<script src="/js/updateProfilePhotoMain.js"></script>
+
+
+<%- include("main_footer") %> 

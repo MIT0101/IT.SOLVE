@@ -1,0 +1,87 @@
+<%- include("reg_log_header") %>
+<link rel="stylesheet" href="/css/mainStyle.css">
+
+  <link rel="stylesheet" href="/css/newPostStyle.css">
+
+
+<!-- Page Content  -->
+<div id="content" class="p-4 p-md-5">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+  
+
+  
+    <a class="navbar-brand mx-auto" href="/">
+        <img src="/images/itsolve.png" alt="" width="30" height="24">
+      </a>
+  
+     
+
+      </div>
+      </nav>
+
+
+  <div class="container main_container mt-3 mb-3">
+
+    <form action="/post/newpost?nextRedirect=<%=nextRedirect%>" method="post" enctype="multipart/form-data">
+      <!-- <img class="mx-auto d-block w-50 h-50 mb-3" src="/images/itsolve2-removebg.png" alt="" width="72" height="57"> -->
+      <h1 class="h3 mb-3 fw-normal">New Post</h1>
+
+      <div class="form-floating">
+        <input name="postTitle" required type="text" class="form-control" id="postTitle" placeholder="Title1">
+        <label for="postTitle">Post Title</label>
+      </div>
+      
+
+
+      <div class="mb-3 mt-3">
+        <label for="postMessage" class="form-label">Post Message</label>
+        <textarea name="postMessage" class="form-control" id="postMessage" rows="3"></textarea>
+      </div>
+
+      <select name="department" class="form-select" aria-label="Default select example">
+        <option selected value="software">Sofware</option>
+        <option value="security">Security</option>
+        <option value="network">Network</option>
+      </select>
+
+      <div class=" form-switch mb-3 mt-3">
+        <input  onchange="showImagePrivew()" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" >
+        <input name="addImage" class="addImage" type="hidden" value="false">
+        <label class="form-check-label" for="flexSwitchCheckChecked">Add Image</label>
+      </div>
+
+      <div class="mb-3 mt-3 showImagePrivewDiv">
+        <!-- postImage  -->
+        <div class="mt-2 w-100">
+          <label for="imgfile" class="form-label">Post Image</label>
+          <input name="postImage" class="form-control" type="file" accept="Image/*" id="imgfile" onchange="privewimage();">
+          
+
+          <div class="post-image">
+            <!-- https://via.placeholder.com/400x200/FFB6C1/000000 -->
+            <img id="imgpriv" src="/images/img_size_400x200.png" class="image mx-auto d-block mt-3" alt="image post">
+           </div>
+       </div>
+
+
+      </div>
+
+
+      <span class="text-danger d-block mt-2">
+        <%=errorMessge%>
+      </span>
+
+      <button class="btn btn-lg mx-auto btn_submit pb-2 pt-2 mt-3" type="submit">Publish</button>
+      <!-- <p class="mt-5 mb-3 text-muted">© 2017–2021</p> -->
+    </form>
+    <!-- <div class="mt-2 mb-2">
+      <span>Don't have an account? </span> <a href="/register">Register Here</a>
+    </div> -->
+  </div>
+
+  <script src="/js/uploadPostImageMain.js"></script>
+
+
+  <%- include("reg_log_footer") %>

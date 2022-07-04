@@ -1,0 +1,81 @@
+<%- include("reg_log_header") %> 
+
+<link rel="stylesheet" href="./css/registerStyle.css">
+<div class="container main_container position-absolute top-50 start-50 translate-middle">
+
+    <form action="/register?nextRedirect=<%=nextRedirect %>" method="post">
+        <img class="mx-auto d-block w-50 h-50 mb-3" src="./images/itsolve2-removebg.png" alt="" width="72"
+            height="57">
+        <h1 class="h3 mb-3 fw-normal">Welcome To Register</h1>
+
+        <div class="form-floating mb-1">
+            <input name="fullName" required type="text" class="form-control" id="fullname" placeholder="name@example.com">
+            <label for="fullname">Full Name</label>
+        </div>
+
+        <div class="form-floating mb-1">
+            <input name="username" required type="text" class="form-control" id="username" placeholder="name@example.com">
+            <label for="username">UserName</label>
+        </div>
+
+        <div class="form-floating mb-1">
+            <input name="email" required type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+        </div>
+
+
+        <div class="form-floating mb-1">
+            <input name="password" required type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+
+        <div class="form-floating mb-1">
+            <input required type="password" class="form-control" id="conformPassword" placeholder="Conform Password">
+            <label for="conformPassword">Conform Password</label>
+        </div>
+
+        <select name="department" class="form-select" aria-label="Default select example">
+            <option selected value="software">Sofware</option>
+            <option value="security">Security</option>
+            <option value="network">Network</option>
+          </select>
+
+
+      
+          <!--for upload image-->
+
+        <!-- <div class="mt-2 mb-3">
+            <div class="mt-5 img_container">
+                <label for="imgfile" class="form-label">Chose Profile Image</label>
+                <input class="form-control" type="file" accept="Image/*" id="imgfile" onchange="privewimage();">
+            </div>
+
+            <img id="imgpriv" class="mx-auto w-50 img_show" src="images/profileimg2.png" alt="">
+
+
+        </div> -->
+
+
+
+        <!-- <div class="form-check form-switch mt-2 mb-2">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+        <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+      </div> -->
+        <!-- btn-primary -->
+
+        <span class="text-danger d-block mt-2"><%=errorMessge%></span>
+
+        <button class="btn btn-lg mx-auto btn_submit pb-2 pt-2 mt-3" type="submit">Register</button>
+        <!-- <p class="mt-5 mb-3 text-muted">© 2017–2021</p> -->
+
+        <div class="mt-2 mb-2">
+            <span>Do you have an account? </span> <a href="/login?nextRedirect=<%=nextRedirect  %> ">Login Here</a>
+          </div>
+    </form>
+
+    
+</div>
+
+<script src="./js/RegisterMainjs.js"></script>
+
+<%- include("reg_log_footer") %> 

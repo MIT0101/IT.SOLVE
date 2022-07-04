@@ -1,0 +1,103 @@
+<%- include("reg_log_header") %>
+
+<link rel="stylesheet" href="/css/mainStyle.css">
+
+<!-- Page Content  -->
+<div id="content" class="p-4 p-md-5">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+  
+
+  
+    <a class="navbar-brand mx-auto" href="/">
+        <img src="/images/itsolve.png" alt="" width="30" height="24">
+      </a>
+  
+     
+
+      </div>
+      </nav>
+
+
+
+<% if(postInfo.isFound){ %>
+
+  <link rel="stylesheet" href="/css/newPostStyle.css">
+
+  <div class="container main_container mt-3 mb-3">
+
+    <form action="/post/edit/<%=postInfo._id  %>?nextRedirect=<%=nextRedirect%>" method="post" enctype="multipart/form-data">
+      <!-- <img class="mx-auto d-block w-50 h-50 mb-3" src="/images/itsolve2-removebg.png" alt="" width="72" height="57"> -->
+      <h1 class="h3 mb-3 fw-normal">Edit Post</h1>
+
+      <div class="form-floating">
+        <input value="<%=postInfo.postTitle  %> " name="postTitle" required type="text" class="form-control" id="postTitle" placeholder="Title1">
+        <label for="postTitle">Post Title</label>
+      </div>
+      
+
+
+      <div class="mb-3 mt-3">
+        <label for="postMessage" class="form-label">Post Message</label>
+        <textarea name="postMessage" class="form-control" id="postMessage" rows="3" ><%=postInfo.postMessage %></textarea>
+      </div>
+
+      <select name="department" class="form-select" aria-label="Default select example">
+        <option <% if(postInfo.department=="software"){ %> selected <% } %>  value="software">Sofware</option>
+        <option <% if(postInfo.department=="security"){ %> selected <% } %> value="security">Security</option>
+        <option <% if(postInfo.department=="network"){ %> selected <% } %> value="network">Network</option>
+      </select>
+
+      <div class="mb-3 mt-3">
+        <!-- postImage  -->
+        <div class="mt-2 w-100">
+          <label for="imgfile" class="form-label">Post Image</label>
+          <input name="postImage" class="form-control" type="file" accept="Image/*" id="imgfile" onchange="privewimage();">
+          
+
+          <div class="post-image">
+            <!-- https://via.placeholder.com/400x200/FFB6C1/000000 -->
+            <img id="imgpriv" src="/postImages/<%=postInfo.imageUrl  %> " class="image mx-auto d-block mt-3" alt="image post">
+            <input type="hidden" name="oldImageUrl" value="<%=postInfo.imageUrl  %>">
+            <input id="newImageUrl" type="hidden" name="newImageUrl" value="<%=postInfo.imageUrl  %>">
+            
+           </div>
+       </div>
+
+
+      </div>
+
+
+      <span class="text-danger d-block mt-2">
+        <%= errorMessge %>
+      </span>
+
+      <button class="btn btn-lg mx-auto btn_submit pb-2 pt-2 mt-3" type="submit">Edit</button>
+
+     
+      <!-- <p class="mt-5 mb-3 text-muted">© 2017–2021</p> -->
+    </form>
+
+    <form action="/post/edit/delete/<%=postInfo._id %>?isDelete=true" method="post">
+        <input id="isDeleteInput" type="hidden" name="isDelete" value="false">
+        <button id="isDeleteBtn" class="btn btn-lg mx-auto btn_submit pb-2 pt-2 mt-3" >Delete</button>
+
+      </form>
+    <!-- <div class="mt-2 mb-2">
+      <span>Don't have an account? </span> <a href="/register">Register Here</a>
+    </div> -->
+  </div>
+
+  <script src="/js/uploadPostImageMain.js"></script>
+
+
+
+<% }else{ %> 
+
+    <h1 class="mt-5" style="text-align: center;">Post Not Found Or You Havint Premission To Edit This Post</h1>
+
+    <% } %> 
+
+
+  <%- include("reg_log_footer") %>

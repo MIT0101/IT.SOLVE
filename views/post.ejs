@@ -1,0 +1,186 @@
+<% if(postInfo.isPostFound){ %> 
+<link rel="stylesheet" href="/css/postStyle.css">
+
+<!-- isPostAuther -->
+
+<% if(isPostAuther){ %> 
+
+<div class="container bootstrap snippets bootdey">
+    <di class="col-md-12">
+        <div class="col-md-10 col-lg-8 p-0 mx-auto ">
+           
+    </div>
+    
+        </di>
+        </div>
+
+        <% } %> 
+
+
+<div class="container bootstrap snippets bootdey">
+    <di class="col-md-12">
+        <!-- was col-sm-12 -->
+        <div class="col-md-10 col-lg-8 p-0 mx-auto ">
+            <div class="panel panel-white post panel-shadow mx-auto">
+                <div class="post-heading">
+                    <div  class="pull-left image ">
+                        <!-- src="https://bootdey.com/img/Content/user_1.jpg" -->
+                        <img src="/profilesImages/<%= postInfo.postAutherImageUrl  %> " class="img-circle avatar" alt="user profile image">
+                    </div>
+                    <div class="pull-left meta">
+                        <div class="title h5">
+                            <!-- <a href="#"><b>Mohammed Al Mustafa</b></a>
+                            uploaded a photo. -->
+
+                            <a style="line-height: 1.5;font-weight: 400;font-size: 1.2rem;" data-toggle="modal" class="abtn" href="/profile/<%= postInfo.postAutherUsername %>" data-target="#myModal"><b class="postProperB"><%=postInfo.postAutherName%></b></a>
+
+
+                            <div class="modal " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div style="min-height: 50px;">
+                                <!-- <button id="mybtn1" type="button" class="close m-4 p-2 " data-dismiss="modal" aria-hidden="true" >X</button> -->
+                                <button id="mybtn1" type="button" class="getData closepropur m-4 p-2 " data-dismiss="modal" aria-hidden="true" ><img src="/images/close_window_48.png" ></button>
+
+
+                                <!-- <h3  id="myModalLabel">Modal header</h3> -->
+                              </div>
+                              <div style="height:90%; width: 80%;border: 0;" class="modal-body mx-auto">
+                              </div>
+                            </div>
+
+
+                        </div>
+                        <input class="postCurrentTime" type="hidden" name="" value="<%=postInfo.postCreatedTime%>">
+                        <h6 class="text-muted time postCurrentTimeh"></h6>
+
+                    </div>
+                        
+                    <div class="pull-right post_more_info">
+                        <!--must has an post href to passed-->
+                        <% if(showMoreInfo){ %> 
+                        <%- include("propur") %> 
+                        <% }else{ %> 
+
+                            <% if(isPostAuther){ %> 
+                                <button onclick="window.location.href='/post/edit/<%=postInfo.postId%>';" class="btnLogin btnPostEditLink">Edit or Delete</button>
+
+
+                                <% } %> 
+                                <%  }%> 
+                            
+                        
+
+                        <h6 style="height: 10px; top: -10px;" class="postDepaoretment"><%=postInfo.postDepartment  %></h6>
+
+
+                    </div>
+                </div>
+
+                 <% if(postInfo.postImageUrl.length>0){ %> 
+                <div class="post-image">
+                    <!-- https://via.placeholder.com/400x200/FFB6C1/000000 -->
+                    <img src="/postImages/<%=postInfo.postImageUrl  %> " class="image" alt="image post">
+                </div>
+                <% } %> 
+
+
+                <div class="post-description">
+                    <h4><%=postInfo.postTitle  %> </h4>
+                    <p class="postMessage"><%= postInfo.postMessage %> </p>
+                    <!-- for like and share icons -->
+                    <!-- <div class="stats">
+                        <a href="#" class="btn btn-default stat-item">
+                            <i class="fa fa-thumbs-up icon"></i>228
+                        </a>
+                        <a href="#" class="btn btn-default stat-item">
+                            <i class="fa fa-share icon"></i>128
+                        </a>
+                    </div> -->
+                </div>
+                   <div class="post-footer">
+                    <form action="/post/<%=postInfo.postId%> " method="post" >
+                    <!-- here may be a form to submit comments -->
+                    <div class="input-group"> 
+                       
+                        <input required name="comentMessage" class="form-control commentTextInput" placeholder="Add a comment" type="text">
+                
+                        <button class="commentSubmit" type="submit"> <img src="/images/paper_plane_32.png" alt="">  </button> 
+                      
+                    </form>
+                </div>
+                    
+                    <ul class="comments-list">
+                        <% for(let i=0;i<postInfo.postComments.length;i++){ %> 
+                        <li  class="comment"> 
+                
+            
+                                <img  class="pull-left avatar" src="/profilesImages/<%= postInfo.postComments[i].commentAutherImageUrl  %>" alt="avatar">
+                            
+
+                            <div  class="comment-body">
+                                <div class="comment-heading">
+                                    <!--Mohammed Al Mustafa-->
+                                    <a  data-toggle="modal" class="abtn meta" href="/profile/<%= postInfo.postComments[i].autherUsername %>" data-target="#myModal"><b><%=postInfo.postComments[i].autherFullName %></b></a>
+
+
+                                    <div class="modal " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                      <div style="min-height: 50px;">
+                                        <!-- <button id="mybtn1" type="button" class="close m-4 p-2 " data-dismiss="modal" aria-hidden="true" >X</button> -->
+                                        <button id="mybtn1" type="button" class="getData closepropur m-4 p-2 " data-dismiss="modal" aria-hidden="true" ><img src="/images/close_window_48.png" ></button>
+
+                                        <!-- <h3  id="myModalLabel">Modal header</h3> -->
+                                      </div>
+                                      <div style="height:90%; width: 80%;border: 0;" class="modal-body mx-auto">
+                                      </div>
+                                    </div>
+
+                                    
+                                    <!-- 7 minutes ago -->
+                                    <input class="commentCurrentTime" type="hidden" value="<%=postInfo.postComments[i].commentCreatedAt %>" >
+                                    <h5 class="time commentCurrentTimeh"></h5>
+
+                                    <div class="getDataDiv">
+                                        <!-- edit btn -->
+                                    
+                                        <% if(postInfo.postComments[i].isCommentOwner){ %> 
+                                        <button value="/commentScore/<%= postInfo.postComments[i].commentId %>--<%=postInfo.postId%>" class="getData editbtn" ><img src="/images/edit2_32.png" alt="up"></button>
+                                        <% }else{ %> 
+                                        <!-- up btn -->
+                                        <% let addedClassNameActive; if(postInfo.postComments[i].isUped){addedClassNameActive=" activeCommentUp"}else{addedClassNameActive=" "} %> 
+            
+                                      <button value="/commentScore/<%= postInfo.postComments[i].commentId %>--<%=postInfo.postId%>" class="getData upbtn <%= addedClassNameActive %>  " ><img src="/images/up_32.png" alt="up"></button>
+                                        <% } %> 
+                                     </div>
+                                     <p><strong class="commentScoreStrong">[<%= postInfo.postComments[i].commentScore%>]</strong> <%=postInfo.postComments[i].commentMessage %></p>
+
+                                </div>
+                            </div>
+
+                        </li>
+                        <% } %> 
+                       
+                    </ul>
+
+                    <% if(!isAuth){ %> 
+                        <!--login Button -->
+                        <span style="font-size: 1.2em;" class="d-block mt-2">
+                          <a class="loginA" href="/login?nextRedirect=/post/<%=postInfo.postId%>">Login</a> Too see Comments
+                        </span>
+                        <% } %> 
+                </div>
+            </div>
+        </div>
+    </di>
+</div>
+
+<!--for j qury-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- for post behavor -->
+    <script src="/js/PostMainjs.js"></script>
+
+<!-- end of popur window -->
+<% }else{ %> 
+
+    <h1 style="text-align: center;" class="mt-5">Post Not Found</h1>
+
+    <% } %> 

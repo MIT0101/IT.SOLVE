@@ -1,0 +1,380 @@
+:root{
+  --backround-color:#FAFAFA;
+  --main-color:#F78E11;
+  --shadow-color:#ED342D;
+}
+
+/*for propur close button*/
+.getData.closepropur{
+ right: 0;
+  position: absolute;
+background-color:transparent;
+z-index: 3!important;
+}
+.getData.closepropur img{
+  background-color: var(--shadow-color)!important; 
+  border-radius: 25%;
+  z-index: 3!important;
+  
+}
+
+/*for E dit Btn*/
+.btnPostEditLink{
+  aspect-ratio: unset!important;
+  font-size: 14px!important;
+  width: fit-content!important;
+  height: inherit!important;
+  background-color: var(--main-color)!important;
+  float: right;
+  margin: 0 0 15px 0!important;
+  padding: 2px!important;
+}
+.btnPostEditLink:hover{
+  font-size: 16px!important;
+  width: fit-content!important;
+  height: inherit!important;
+  
+}
+/*for edit comment input*/
+.commentEditInput{
+  width: 100%;
+}
+ /*for pagination */
+.paginationDiv{
+   
+  width:fit-content ;
+}
+.page-link{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding-top: 15px; 
+  padding-bottom: 15px;
+  color: gray;
+}
+.page-link:hover {
+  font-size: 1rem !important;
+  color: var(--shadow-color) !important;
+}
+
+/*for post time*/
+.postCurrentTimeh{
+  font-size: 16px;
+}
+@media (max-width:576px) {
+  .postCurrentTimeh{
+    font-size: 12px;
+  }
+}
+
+/*style for post prper*/
+.postProperBtn{
+  font-size: 2rem;
+  color: var(--main-color); 
+   
+}
+.abtn.postProperA{       
+  display: none;
+  float: right ;
+  padding: 2px;
+  font-size: 1rem;
+  color: gray;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+
+}
+.abtn.postProperA:hover{
+  font-size: 1.1rem;
+  padding: 2px;
+  color: var(--main-color);
+}
+
+/*for sho wmore info*/
+.panel.panel-white.post.panel-shadow.mx-auto :hover .postProperA{
+  display: block;
+  transition: all 0.3s ease-out;
+}
+.post .post-image .image :hover .postProperA{
+  display: block;
+  transition: all 0.3s ease-out;
+}
+/*for show more icon*/
+.abtn.postProperA img{ 
+  aspect-ratio: 1/1;
+  width: 26px;       
+}
+@media (max-width:576px) {
+  .abtn.postProperA{ 
+    font-size: 16px;        
+  }
+  .abtn.postProperA img{ 
+    width: 20px;       
+  }
+  .abtn.postProperA:hover{
+    font-size: 18px;        
+
+  }
+  
+}
+.postProperB{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 0.1ch;
+  font-size: 1rem;
+}
+/*for comment messgae */
+
+.comment-heading p{
+  font-size: 15px;
+}
+/*for show or hide elemnts*/
+.showIm{
+  visibility: visible!important;
+}
+.hideIm{
+  visibility: hidden!important;
+}
+
+/*to show up button and edit button*/
+.post .post-footer .comments-list .comment:hover .getDataDiv {
+visibility: visible;
+transition: all 0.1s ease-out;
+
+}
+.getDataDiv{
+  /*to move div to top withoud break comment appearance*/
+  position: relative;
+  top: -15px;
+ visibility: hidden; 
+}
+/*for phone to avoid hidden comment time*/
+@media (max-width :576px) {
+  .getDataDiv{
+    position: static;
+  }
+  
+}
+/*for update comment score*/
+.getData{
+  background-color: var(--backround-color);
+  border: none;
+  float: right;
+  margin-left: 5px;
+}
+
+.getData img{
+  border-radius: 10%;
+  border: none;
+  background-color: var(--backround-color);
+}
+
+.getData img:hover {
+    /* background-color: var(--main-color); */
+    background-color: var(--shadow-color); 
+    border-radius: 25%;
+    padding: 2px;
+    transition: all 0.3s ease-out;
+
+}
+
+.activeCommentUp{
+    /* background-color: var(--main-color); */
+  background-color: var(--shadow-color); 
+  border-radius: 25%;
+  padding: 2px;
+}
+/* for comment auther name style */
+
+.meta {
+  font-size: 13px!important;
+  color: black;
+}
+.meta:hover {
+  color: #aaaaaa;
+}
+
+/* for comment text input  */
+.commentTextInput{
+margin-right: 7px;
+}
+
+/*comment send button */
+.commentSubmit{
+  border: none;
+  width: fit-content;
+  padding: 0;
+
+}
+
+.commentSubmit img{
+  background-color: var(--main-color); 
+  border-radius: 10%;
+  padding: 2.5px 5px 2.5px 5px;
+  /* margin-top: auto;
+  margin-bottom: auto; */
+  transition: all 0.3s ease-out;
+ 
+}
+
+.commentSubmit img:hover{
+   background-color: var(--shadow-color); 
+  border-radius: 25%;
+  padding: 7px;
+
+}
+
+.postOnlyDiv{
+  width: 100%;
+}
+
+@media (max-width :576px) {
+.postOnlyDiv{
+  width: 90%;
+}
+}
+/* post department */
+.postDepaoretment{
+  top: 15px;
+  text-align: right;
+  text-transform: uppercase;
+  position: relative;
+  margin-top: 5px;
+   /* transform: translateY(-10px);  */
+   transition: all 0.3s ease-in-out;
+}
+
+/* to change boder when box if on foucs */
+.form-control:focus {
+  border-color: var(--shadow-color);
+  box-shadow: 0 0 0 0.2rem var(--main-color);
+}
+
+/* for form dep select */
+.form-select:focus {
+border-color: var(--shadow-color);
+box-shadow: 0 0 0 0.2rem var(--main-color);
+}
+.bootdey{
+    padding: 0;
+    
+}                 
+.panel-shadow {
+    /* box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px; */
+    box-shadow: rgb(0 0 0 / 20%) 2px 2px 5px;
+}
+.panel-white {
+  border: 1px solid #dddddd;
+}
+.panel-white  .panel-heading {
+  color: #333;
+  background-color: #fff;
+  border-color: #ddd;
+}
+.panel-white  .panel-footer {
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+.post .post-heading {
+  height: 95px;
+  padding: 20px 15px;
+}
+.post .post-heading .avatar {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin-right: 15px;
+}
+.post .post-heading .meta .title {
+  margin-bottom: 0;
+}
+.post .post-heading .meta .title a {
+  color: black;
+}
+.post .post-heading .meta .title a:hover {
+  color: #aaaaaa;
+}
+.post .post-heading .meta .time {
+  margin-top: 8px;
+  color: #999;
+}
+.post .post-image .image {
+  width: 100%;
+  height: auto;
+}
+.post .post-description {
+  padding: 15px;
+}
+.post .post-description p {
+    /*14*/
+   /* it was 10px */
+   font-size: 1em;
+}
+.post .post-description .stats {
+  margin-top: 20px;
+}
+.post .post-description .stats .stat-item {
+  display: inline-block;
+  margin-right: 15px;
+}
+.post .post-description .stats .stat-item .icon {
+  margin-right: 8px;
+}
+.post .post-footer {
+  border-top: 1px solid #ddd;
+  padding: 15px;
+}
+
+.post .post-footer .comments-list {
+  padding: 0;
+  margin-top: 20px;
+  list-style-type: none;
+}
+.post .post-footer .comments-list .comment {
+  display: block;
+  width: 100%;
+  /*to avoid comment concatnation*/
+  min-height: 50px;
+  margin: 20px 0;
+}
+.post .post-footer .comments-list .comment .avatar {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px 0 10px;
+
+}
+.post .post-footer .comments-list .comment .comment-heading {
+  display: block;
+  width: 100%;
+}
+.post .post-footer .comments-list .comment .comment-heading .user {
+    /*16*/
+  font-size: 16px;
+  font-weight: bold;
+  display: inline;
+  margin-top: 0;
+  margin-right: 10px;
+}
+.post .post-footer .comments-list .comment .comment-heading .time {
+    /*12*/
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 0;
+  margin-left: 5px;
+  display: inline;
+}
+@media (max-width:576px) {
+  .post .post-footer .comments-list .comment .comment-heading .time {
+    /*12*/
+  font-size: 10px;
+  }
+}
+
+.post .post-footer .comments-list .comment .comment-body {
+  margin-left: 70px;
+}
+.post .post-footer .comments-list .comment > .comments-list {
+  margin-left: 50px;
+}            

@@ -1,0 +1,44 @@
+<!-- for popur window start -->
+<!--for bootstrap -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
+<style>
+
+#mybtn1{
+    font-size: 2rem;
+    color: var(--main-color); 
+     
+}
+.abtn{
+  font-size: 1rem;
+    color: var(--main-color);
+    font-weight: bold;
+}
+</style>
+
+<!-- must have a  href  to a tag -->
+<a data-toggle="modal" class="abtn" href="/" data-target="#myModal"><img src="/images/info_icon.ico" alt="info icone">More Info</a>
+
+
+<div class="modal " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div style="min-height: 50px;">
+    <button id="mybtn1" type="button" class="close m-4 p-2 " data-dismiss="modal" aria-hidden="true" >X</button>
+    <!-- <h3  id="myModalLabel">Modal header</h3> -->
+  </div>
+  <div style="height:90%; width: 80%;border: 0;" class="modal-body mx-auto">
+  </div>
+</div>
+
+
+<!--for j qury-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    $('.abtn').on('click', function(e) {
+    e.preventDefault();
+    var url = $(this).attr('href');
+    $(".modal-body").html('<iframe width="100%" height="100%" frameborder="0" scrolling="yes" allowtransparency="true" src="'+url+'"></iframe>');
+});
+</script>
+
+<!-- end of popur window -->

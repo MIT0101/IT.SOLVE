@@ -1,0 +1,63 @@
+:root{
+    --backround-color:#FAFAFA;
+    --main-color:#F78E11;
+    --shadow-color:#ED342D;
+
+}
+body{
+    background-color: var(--backround-color);
+}
+.main_container {
+  display: block;
+  width: 30%;
+  /* margin-top: 10%;
+  margin-bottom: auto; */
+min-height: 70vh;
+}
+
+.btn_submit {
+    display: block;
+    width: 75%;
+    color: #fff;
+    background-color: var(--main-color);
+  }
+
+
+  /* to change boder when box if on foucs */
+  .form-control:focus {
+    border-color: var(--shadow-color);
+    box-shadow: 0 0 0 0.2rem var(--main-color);
+}
+
+/* for username still lowecase */
+
+#username{
+  text-transform: lowercase;
+  }
+@media (max-width : 1200px ) {
+    .main_container{
+        width: 40%;
+    }
+}
+
+@media (max-width: 960px) {
+  .main_container {
+    width: 60%;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 1.1em;
+  }
+  .main_container {
+    width: 90%;
+  }
+
+  .btn_submit {
+    display: block;
+    width: 90%;
+  }
+ 
+
+}

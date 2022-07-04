@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title><%= pageTitle %></title>
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- for fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--for booastrap-->
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
+    <!--for ther own bootstrap-->
+		<link rel="stylesheet" href="/css/mainStyle.css">
+    <link rel="icon" href="/images/itsolve_single_logo.ico">
+
+
+  </head>
+  <body>
+
+    <% if(isAuth){ %> 
+    <div class="wrapper d-flex align-items-stretch">
+  <nav id="sidebar" class="active" >
+    <div class="left_sidebar">
+      <div class="p-4 pt-5">
+        <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(/profilesImages/<%=userImageUrl%>);"></a>
+  <ul class="list-unstyled components mb-5">
+    <li class="active">
+      <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+      <ul class="collapse list-unstyled" id="homeSubmenu">
+      <li>
+          <a href="/">Main Home</a>
+      </li>
+      <!-- <li>
+          <a href="#">Home 2</a>
+      </li>
+      <li>
+          <a href="#">Home 3</a>
+      </li> -->
+      </ul>
+    </li>
+    <!-- <li>
+        <a href="https://www.instagram.com/m_it_01/">About</a>
+    </li> -->
+    <li>
+    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Departments</a>
+    <ul class="collapse list-unstyled" id="pageSubmenu">
+      <li>
+          <a href="/department/software">Software</a>
+      </li>
+      <li>
+          <a href="/department/security">Security</a>
+      </li>
+      <li>
+          <a href="/department/network">Network</a>
+      </li>
+    </ul>
+    </li>
+    <li>
+    <a href="/profile/<%=currentUsername  %> ">My Portfolio</a>
+    </li>
+
+    <li>
+    <a href="/post/newpost">New Post</a>
+
+
+    </li>
+
+
+
+    <li>
+      <a href="#contact" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Contact Us<img class="mainConact" src="/images/envelope.ico"></a>
+      <ul class="collapse list-unstyled" id="contact">
+        <li>
+          <a href="https://www.instagram.com/m_it_01/" target="_blank"><img class="contactLogo" src="/images/instagram.ico">Instagram</a>
+          </li>
+          <li>
+            <a href="https://t.me/M_IT_01" target="_blank"><img class="contactLogo" src="/images/telegram.ico">Telegram</a>
+            </li>
+       
+      </ul>
+      </li>
+  
+
+
+    <!-- <li>
+    <a href="https://www.instagram.com/m_it_01/" target="_blank">Contact Us</a>
+    </li> -->
+
+    <!-- class="logoutli" -->
+    <!-- style="border-bottom:0;" -->
+
+  <!-- for chang profile image -->
+
+  <li ><a href="/upload/image/profile">Profile Image Setting</a></li>
+
+
+    <li ><a href="/logout">Logout</a></li>
+  </ul>
+
+
+
+</div>
+</div>
+</nav>
+
+<% } %> 
+
+<!-- Page Content  -->
+<div id="content" class="p-4 p-md-5">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<div class="container-fluid">
+
+  <% let brandStyleAuth=`margin-left: 5px!important;`;  %> 
+
+
+  <!--show button minu if he is auth-->
+  <% if(isAuth){ %> 
+ 
+  
+    <% brandStyleAuth=``;  %> 
+
+
+  <button type="button" id="sidebarCollapse" class="btn">
+    <i class="fa fa-bars"></i>
+    <span class="sr-only">Toggle Menu</span>
+  </button>
+  <% } %> 
+
+
+
+  <a style="<%=brandStyleAuth %>" class="navbar-brand" href="/">
+      <img src="/images/itsolve.png" alt="" width="30" height="24">
+    </a>
+
+   
+
+  <!--search button-->
+    <div class="search-box ">
+      <button onclick="searchFunction()" class="btn-search"><img class="serchImg" src="/images/search_32.png" alt=""></button>
+      <input type="text" class="input-search" placeholder="Type to Search...">
+    </div>
+
+
+     <% if(!isAuth){ %> 
+      <!--login Button -->
+        <button onclick="window.location.href='/login';" class="btnLogin">Log In</button>
+        <% } %> 
+
+
+
+</div>
+</nav>
+
+
+
+

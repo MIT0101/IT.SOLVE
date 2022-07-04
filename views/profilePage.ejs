@@ -1,0 +1,56 @@
+<%- include("main_header") %> 
+
+<% if(userInfo.isFound ){ %> 
+
+<link rel="stylesheet" href="/css/profileStyle.css">
+
+<div class="row">
+
+    <div class="col-lg-10 col-sm-12 mx-auto">
+<div id="profile_container" class="profile-widget panel panel-white mx-auto">
+    <div class="row">
+          <!-- it was col-sm-12 -->
+        <div class="col-sm-12">
+            <!-- http://www.bootdey.com/img/Content/flores-amarillas-wallpaper.jpeg -->
+            <!-- /images/secDep.jpg -->
+            <div class="image-container bg2 " style="background:url(http://www.bootdey.com/img/Content/flores-amarillas-wallpaper.jpeg )">  
+                <img style="width: 150px; height: 150px;" src="/profilesImages/<%= userInfo.mainImageUrl  %>" class="avatar" alt="profileimg"> 
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="details mx-auto">
+                <h4><%=userInfo.fullName  %> <i class="fa fa-sheild"></i></h4>
+                <h5><%=userInfo.userName  %> <i class="fa fa-sheild"></i></h4>
+                <div class="mt-1 mb-2"><%=userInfo.department  %> Department </div>
+                <div class="mt-1 mb-2">Score : <span ><%=userInfo.score  %></span> </div>
+                <!-- <div>Works at Google.com</div> -->
+                <!-- <div>Attended University of Boabylon</div>
+                <div>Lives in Iraq, Babylon</div> -->
+                <!-- <div class="mg-top-10"> -->
+                    <!-- <a href="#" class="btn btn-default">About Kevin</a> -->
+                    <!-- <a href="#" class="btn btn-success">Follow</a> -->
+                <!-- </div> -->
+            </div>
+        </div>
+         
+    </div>
+</div>
+</div>
+</div>
+
+<% if(postsArray.length>0){ %> 
+   
+
+        <%- include("posts") %> 
+
+
+    <% } %> 
+
+<% }else{ %>
+   <h1 style="text-align: center;">User Not Found</h1>
+    
+    <% } %> 
+
+<%- include("main_footer") %> 
+
+

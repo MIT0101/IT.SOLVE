@@ -1,0 +1,96 @@
+<%- include("main_header") %> 
+
+<!--content is here-->
+<!-- <h2 class="mb-4">Main Page</h2> -->
+<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+
+<% let nhref; if(isSearch){ %> 
+  
+  <!--for j qury-->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+
+<script src="/js/jQuryLocal.js"></script>
+
+
+
+
+<% if(profilesfound.length>0){ %> 
+
+  <% for(let i =0;i<profilesfound.length;i++){ %> 
+        
+    <!-- profilesfound.fullName
+    profilesfound.username
+    profilesfound.imageUrl -->
+
+    <link rel="stylesheet" href="/css/postStyle.css">
+
+
+<div class="container bootstrap snippets bootdey">
+    <div class="col-md-12">
+        <!-- was col-sm-12 -->
+        <div class="col-md-10 col-lg-8 p-0 mx-auto ">
+            <div class="panel panel-white post panel-shadow mx-auto">
+                <div class="post-heading">
+                    <div  class="pull-left image ">
+                        <!-- src="https://bootdey.com/img/Content/user_1.jpg" -->
+                         
+                        <img src="/profilesImages/<%=profilesfound[i].imageUrl %>" class="img-circle avatar" alt="user profile image">
+                    </div>
+                    <div class="pull-left meta">
+                        <div class="title h5">
+                            <!-- <a href="#"><b>Mohammed Al Mustafa</b></a>
+                            uploaded a photo. -->
+
+                            <a style="line-height: 1.5;font-weight: 400;font-size: 1.2rem;" data-toggle="modal" class="abtn" href="/profile/<%=profilesfound[i].username %> " data-target="#myModal"><b class="postProperB"><%=profilesfound[i].fullName %> </b></a>
+
+
+                            <div class="modal " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div style="min-height: 50px;">
+
+                                <!-- <button id="mybtn1" type="button" class="close m-4 p-2 " data-dismiss="modal" aria-hidden="true" >X</button> -->
+                                <button id="mybtn1" type="button" class="getData closepropur m-4 p-2 " data-dismiss="modal" aria-hidden="true" ><img src="/images/close_window_48.png" ></button>
+
+                                <!-- <h3  id="myModalLabel">Modal header</h3> -->
+                              </div>
+                              <div style="height:90%; width: 80%;border: 0;" class="modal-body mx-auto">
+                              </div>
+                            </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+
+  <% } %> 
+  <script>
+    $('.abtn').on('click', function(e) {
+    e.preventDefault();
+    var url = $(this).attr('href');
+    $(".modal-body").html('<iframe width="100%" height="100%" frameborder="0" scrolling="yes" allowtransparency="true" src="'+url+'"></iframe>');
+});
+</script>
+
+  <% } %> 
+  <% } %> 
+
+
+<% if(postsArray.length>0){ %> 
+   
+  <%- include("posts") %> 
+   
+
+<% }else{ %> 
+  <h1 style="text-align: center;">No Post Found</h1>
+
+  <% } %> 
+
+
+</div>
+</div>
+
+<%- include("main_footer") %> 
