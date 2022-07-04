@@ -1,0 +1,6 @@
+exports.DELETEDACOUNTFULLNAME="Deleted Acount";
+exports.DELETEDACOUNTUSERNAME="deletedacountusername";
+exports.DELETEDACOUNTIMAGEURL="profile_img.png";
+exports.NOIMAGETOUPLOAD="";
+exports.COMMENTLIMITFORPROFILESHOW=3;
+exports.POSTSLIMITSHOWNFOREACHPAGE=6;
